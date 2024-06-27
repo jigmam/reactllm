@@ -102,12 +102,26 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+    buildFeatures {
+        mlModelBinding true
+    }
+    aaptOptions {
+        noCompress "tflite"
+    }
 }
+
+
+
+
+
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-
+    implementation("com.google.mediapipe:tasks-genai:0.10.14")
+    implementation("org.tensorflow:tensorflow-lite:2.16.1")
+    implementation("com.google.mediapipe:tasks-text:latest.release")
+    implementation("org.tensorflow:tensorflow-lite:2.16.1")
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
